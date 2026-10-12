@@ -41,3 +41,11 @@
 - UX flow and accessibility/language requirements.
 - Focus checkpoint cadence and how escalations are tested.
 - Technical stack and deployment/security choices.
+
+### D-016: First implementation unit
+- **Date:** 2026-10-12
+- **Status:** Agreed
+- **Decision:** User selected Quick Start as the first unit: one ambition, defined goal, milestone, and first task.
+- **Implementation:** Local browser prototype; see QUICK_START.md. Production architecture and AI refinement remain open.
+- **Related issue:** #1
+

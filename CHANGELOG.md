@@ -10,4 +10,4 @@ Follow a human-readable change log. Record shipped functionality separately from
 - 2026-10-12: Published the foundation to the public productivity-tool repository; added work-item, bug-report, and pull-request templates.
 
 ### Application
-- No application code or live integrations created yet.
+- 2026-10-12: Added the Quick Start browser prototype: ambition-to-plan flow, explicit save, persistent drafts and goals, first-task completion, capacity validation, and JSON export. No live integrations yet.
