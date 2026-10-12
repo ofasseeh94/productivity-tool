@@ -21,8 +21,7 @@ Requires Node.js 22 or later. No dependency installation is needed.
 npm run dev
 ~~~
 
-Open http://127.0.0.1:5173. Run validation with 
-pm test.
+Open http://127.0.0.1:5173. Run validation with npm test.
 
 Quick Start captures an ambition, outcome, horizon, weekly capacity, milestone, and first task. Review before saving; drafts and goals persist in this browser. Task completion is separate from goal completion. Export goals as JSON for a backup.
 

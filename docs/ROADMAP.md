@@ -38,4 +38,3 @@
 ## First delivered slice
 
 2026-10-12: Quick Start browser prototype implemented for issue #1. See [unit specification](QUICK_START.md) for behavior, validation, and limitations. This partial goal-loop slice does not complete the full MVP or persistent multi-user foundation.
-

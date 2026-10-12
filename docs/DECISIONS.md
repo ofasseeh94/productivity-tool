@@ -48,4 +48,3 @@
 - **Decision:** User selected Quick Start as the first unit: one ambition, defined goal, milestone, and first task.
 - **Implementation:** Local browser prototype; see QUICK_START.md. Production architecture and AI refinement remain open.
 - **Related issue:** #1
-
