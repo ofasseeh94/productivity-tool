@@ -18,7 +18,7 @@
 | D-012 | Evening preparation plus short morning briefing | Agreed | Start day ready; avoid repeated approvals | 2026-10-12 |
 | D-013 | Active focus coaching with gentle routine prompts and stronger support when warranted | Agreed | Accountability with attention protection | 2026-10-12 |
 | D-014 | Distinguish scheduled, unpaused, focused and completed progress | Agreed | Honest analytics | 2026-10-12 |
-| D-015 | Github repository and canonical project documentation | Requested / awaiting repo | Trackable build history and decisions | 2026-10-12 |
+| D-015 | Public GitHub repository at ofasseeh94/productivity-tool and canonical project documentation | Agreed | User selected a new public repository; documentation baseline and work templates published | 2026-10-12 |
 
 ## Decision record template
 

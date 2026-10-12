@@ -271,13 +271,13 @@ A discussion decision can be **Agreed** without being **Implemented**. Do not co
 
 ## 16. Open questions and explicit non-decisions
 
-**Before implementation:** repository name/ownership; public/private repository status; initial calendar providers; whether dedicated productivity calendar is app-hosted or provider-backed; supported device/browser matrix; checkpoint notification channel and web limitations; timezone/week-start policy; specific goal progress formulas; data retention/hosting; AI model, costs and consent boundaries; onboarding research; MVP size and release sequencing; accessibility and localization expectations.
+**Before implementation:** initial calendar providers; whether dedicated productivity calendar is app-hosted or provider-backed; supported device/browser matrix; checkpoint notification channel and web limitations; timezone/week-start policy; specific goal progress formulas; data retention/hosting; AI model, costs and consent boundaries; onboarding research; MVP size and release sequencing; accessibility and localization expectations.
 
 **Not yet decided:** application framework, database, hosting, authentication, AI provider, calendar API implementation, revenue strategy or release date.
 
 ## 17. Next steps
 
-1. Confirm/create GitHub repository and commit this documentation baseline.
+1. Completed 2026-10-12: created public `ofasseeh94/productivity-tool` repository and committed the documentation baseline and GitHub work templates.
 2. Review and formally freeze MVP scope for first user-test release.
 3. Map core screens and interaction states in a UX flow.
 4. Create GitHub issues from defined user journeys and acceptance tests.

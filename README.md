@@ -5,6 +5,10 @@
 
 An AI-supported personal execution and accountability system combining seasonal goals, a unified multi-calendar view, approval-first scheduling, focused execution, and progress against one's previous performance.
 
+## Repository
+
+[ofasseeh94/productivity-tool](https://github.com/ofasseeh94/productivity-tool) is the public project repository. This folder is its local checkout, with the documentation baseline on the main branch.
+
 ## Start here
 
 Read [the master project guide](docs/PROJECT_GUIDE.md). It is the canonical reference for the product concept, confirmed decisions, workflows, scope, delivery process and outstanding questions.
