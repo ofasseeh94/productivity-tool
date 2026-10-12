@@ -1,6 +1,6 @@
 # AI Productivity App
 
-**Status:** Product discovery consolidated; MVP scope and architecture pending.\
+**Status:** Quick Start browser prototype available; full MVP and production architecture pending.\
 **Document version:** 1.0 (2026-10-12)
 
 An AI-supported personal execution and accountability system combining seasonal goals, a unified multi-calendar view, approval-first scheduling, focused execution, and progress against one's previous performance.
@@ -12,6 +12,20 @@ An AI-supported personal execution and accountability system combining seasonal 
 ## Start here
 
 Read [the master project guide](docs/PROJECT_GUIDE.md). It is the canonical reference for the product concept, confirmed decisions, workflows, scope, delivery process and outstanding questions.
+
+## Run the first unit
+
+Requires Node.js 22 or later. No dependency installation is needed.
+
+~~~sh
+npm run dev
+~~~
+
+Open http://127.0.0.1:5173. Run validation with npm test.
+
+Quick Start captures an ambition, outcome, horizon, weekly capacity, milestone, and first task. Review before saving; drafts and goals persist in this browser. Task completion is separate from goal completion. Export goals as JSON for a backup.
+
+This is a local prototype with guided manual planning, not AI refinement or account-backed storage. Browser data is specific to this origin and device and can be lost when browser data is cleared. Calendar integration and cross-device sync are future units. The preview name Momentum is provisional.
 
 ## Tracking
 

@@ -34,3 +34,7 @@
 8. Define progress calculations and transparent chart labels.
 9. Write privacy/consent requirements for calendar and later email integrations.
 10. Conduct early usability sessions and record findings.
+
+## First delivered slice
+
+2026-10-12: Quick Start browser prototype implemented for issue #1. See [unit specification](QUICK_START.md) for behavior, validation, and limitations. This partial goal-loop slice does not complete the full MVP or persistent multi-user foundation.
