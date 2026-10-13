@@ -44,3 +44,5 @@
 2026-10-13: Task-linked focus-session prototype added, including pause/resume, reload recovery, explicit outcome capture, resumption notes, and execution history. See [unit specification](FOCUS_SESSIONS.md). AI coaching and checkpoint delivery remain future work.
 
 2026-10-13: Progress and Review prototype added: session summaries, preceding-period timer comparison, daily effort table, current task snapshots, manual milestone achievement, and persistent reflections. See [unit specification](PROGRESS_REVIEW.md).
+
+2026-10-13: Today and Daily Planning prototype added: explicit priority plans, stated capacity, tomorrow preparation, earlier-work review, Focus shortcuts, and dated reflections. See [unit specification](DAILY_PLANNING.md).

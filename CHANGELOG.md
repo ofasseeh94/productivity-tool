@@ -24,3 +24,7 @@ Follow a human-readable change log. Record shipped functionality separately from
 ### Progress and Review prototype — 2026-10-13
 - Added explicit 7/28-day session summaries, adjacent-period timer comparison, daily effort data, and focused-report coverage.
 - Added independent milestone achievement and persistent review drafts/history; preserved previous unit data.
+
+### Today and Daily Planning prototype — 2026-10-13
+- Added explicit today/tomorrow plans with up to three priorities, optional capacity checks, and plan drafts.
+- Added synchronized task completion, Focus shortcuts, unfinished earlier-priority review without automatic carryover, and dated reflections/history.
