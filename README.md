@@ -41,3 +41,7 @@ No architecture or tech stack is approved yet. No calendar or email access is as
 ## Planning Inbox
 
 Select Planning Inbox in the local preview to capture standalone or goal-linked tasks, edit estimates, and complete or reopen actions. Quick Start first actions appear in the same list. Export all data includes inbox tasks and goals. See [unit specification](docs/PLANNING_INBOX.md).
+
+## Focus sessions
+
+Use Focus beside Quick Start and Planning Inbox, or a task's Focus button. Start, pause/resume, end, and log completed/partial/stopped attempts with a resumption note. Session history persists locally and is included in the inbox's full-data export. See [unit specification](docs/FOCUS_SESSIONS.md).

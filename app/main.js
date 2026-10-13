@@ -1,8 +1,11 @@
 import { emptyDraft, validate, makeGoal } from './model.js';
 import { mountInbox } from './inbox.js';
+import { mountFocus } from './focus.js';
+import { recoverSession } from './sessions.js';
 const key = 'momentum.quickstart.v1';
 let state = { version: 1, step: 0, draft: emptyDraft(), goals: [], selected: null, tasks: [], taskDraft: { title: '', minutes: '', goalId: '' }, view: 'quick-start' };
 let errors = {};
+let cleanupView = () => {};
 const content = document.querySelector('#content');
 const escape = value => String(value).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
 function notice(message) { document.querySelector('#storage-notice').textContent = message; }
@@ -25,9 +28,11 @@ function field(name, label, hint, type = 'text') {
 const titles = ['What matters to you right now?', 'Give your ambition a shape.', 'Make the first step small.', 'A plan you can make your own.'];
 const intros = ['An ambition, a project, a change you’ve been putting off. There’s no perfect answer.', 'Choose an outcome you can recognize, with time you can realistically protect.', 'Choose one concrete action within your control. You can build on it later.', 'Check that this feels realistic. Saving creates your goal and first task.'];
 function render(focus = false) {
+  cleanupView(); cleanupView = () => {};
   document.querySelectorAll('[data-view]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.view === state.view)));
-  document.querySelector('#steps').hidden = state.view === 'inbox';
-  if (state.view === 'inbox') { mountInbox(content, state, persist, escape); return; }
+  document.querySelector('#steps').hidden = state.view !== 'quick-start';
+  if (state.view === 'focus') { cleanupView = mountFocus(content, state, persist, escape); return; }
+  if (state.view === 'inbox') { mountInbox(content, state, persist, escape, id => { state.focusTaskId = id; state.view = 'focus'; persist(); render(true); }); return; }
   document.querySelectorAll('#steps li').forEach((li, i) => { li.classList.toggle('active', i === Math.min(state.step, 3)); if (i === Math.min(state.step, 3)) li.setAttribute('aria-current', 'step'); else li.removeAttribute('aria-current'); });
   if (state.step === 4) { renderGoal(); return; }
   let body;
@@ -64,6 +69,14 @@ function renderGoal() {
 }
 if (!Array.isArray(state.tasks) || !state.tasks.every(t => t && typeof t.id === 'string' && typeof t.title === 'string')) { state.tasks = []; notice('Saved inbox tasks could not be read. Your goals remain available.'); }
 state.taskDraft = { title: '', minutes: '', goalId: '', ...state.taskDraft };
-if (!['quick-start', 'inbox'].includes(state.view)) state.view = 'quick-start';
+state.sessions = Array.isArray(state.sessions) ? state.sessions : [];
+state.activeSession = state.activeSession || null;
+recoverSession(state.activeSession);
+if (state.activeSession) persist();
+if (!['quick-start', 'inbox', 'focus'].includes(state.view)) state.view = 'quick-start';
+// Running time is unpaused wall-clock time, never a concentration measurement.
+import { pauseSession } from './sessions.js';
+window.addEventListener('pagehide', () => { if (state.activeSession?.status === 'running') { pauseSession(state.activeSession, Date.now(), 'Page closed or reloaded; resume when ready'); persist(); } });
+setInterval(() => { if (state.activeSession?.status === 'running') { state.activeSession.lastSeenAt = Date.now(); persist(); } }, 5000);
 document.querySelectorAll('[data-view]').forEach(button => button.addEventListener('click', () => { state.view = button.dataset.view; persist(); render(true); }));
 render();

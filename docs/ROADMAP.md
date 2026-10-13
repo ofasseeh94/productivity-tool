@@ -40,3 +40,5 @@
 2026-10-12: Quick Start browser prototype implemented for issue #1. See [unit specification](QUICK_START.md) for behavior, validation, and limitations. This partial goal-loop slice does not complete the full MVP or persistent multi-user foundation.
 
 2026-10-13: Planning Inbox prototype added: manual capture, optional goal links and estimates, editing, completion, filters, first-action synchronization, and complete browser-data export. See [unit specification](PLANNING_INBOX.md).
+
+2026-10-13: Task-linked focus-session prototype added, including pause/resume, reload recovery, explicit outcome capture, resumption notes, and execution history. See [unit specification](FOCUS_SESSIONS.md). AI coaching and checkpoint delivery remain future work.

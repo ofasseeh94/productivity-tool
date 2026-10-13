@@ -15,3 +15,8 @@ Follow a human-readable change log. Record shipped functionality separately from
 ### Planning Inbox prototype — 2026-10-13
 - Added standalone and goal-linked task capture, explicit task editing, completion/reopening, and filters.
 - Preserved Quick Start first-action identity and existing browser data; added full-data export.
+
+### Focus sessions prototype — 2026-10-13
+- Added task-linked focus setup, timestamp-based timing, pause/resume and interruption records.
+- Added reload recovery, explicit session outcomes, resumption notes, self-reported focused time, and persistent history.
+- Completed outcomes synchronize task status; partial/stopped records retain effort without completing tasks.
