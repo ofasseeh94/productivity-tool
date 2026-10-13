@@ -23,12 +23,16 @@ Open **Planning Inbox**, write the task, and select **Add task**. Estimates and 
 - **Goals:** change a goal or milestone, then explicitly save. Your earlier definition is retained. Changing a milestone resets its achieved checkbox so you can verify the new result.
 - **Prepare tomorrow:** choose tomorrow's priorities in Today. Unfinished work is not added automatically.
 - **Progress:** review your effort and results, confirm milestones you achieved, and save a short reflection. Timer time is not a goal-completion percentage.
-- **Backup:** select **Download full backup** occasionally. Keep the file. Data currently lives only in this browser; clearing browser data can remove it. Restoring a full backup replaces current data after confirmation.
+- **Backup:** select **Download full backup** occasionally. Keep the file. Browser-only data lives in this browser; clearing browser data can remove it. Restoring a full backup replaces current data after confirmation.
 
 ## Keep it simple
 
 Your usual route is **Today → Focus → Save result**. You do not need to use every screen every day. The timer continues while the page is open; closing or reloading pauses it. Resume when ready.
 
-Calendar scheduling, AI coaching, accounts, and cross-device sync are not available yet. The current workflow is manual.
+Calendar scheduling, AI coaching, and cross-device sync are not available yet. Local accounts are available through Account. The current workflow is manual.
 
 The header follows your routine: **Today → Focus → Save result**. Save result opens your current attempt; select End and review when ready, then save the outcome. It does not stop the timer just by opening the screen.
+
+## Optional local account
+
+Select Account to create or sign in to an account on this computer. Check the copy option if you want your existing browser data copied into a new account. Wait for Saved to account before clearing browser data. Signing out returns to your separate browser-only workspace. Online access and password reset are not available yet.

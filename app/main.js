@@ -7,6 +7,7 @@ import { mountGoals } from './goals.js';
 import { mountBackup } from './backup.js';
 import { mountGuide } from './guide.js';
 import { recoverSession } from './sessions.js';
+import { workspaceStorage, mountAccount } from './account.js';
 const key = 'momentum.quickstart.v1';
 let state = { version: 1, step: 0, draft: emptyDraft(), goals: [], selected: null, tasks: [], taskDraft: { title: '', minutes: '', goalId: '' }, view: 'quick-start' };
 let errors = {};
@@ -14,8 +15,9 @@ let cleanupView = () => {};
 const content = document.querySelector('#content');
 const escape = value => String(value).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
 function notice(message) { document.querySelector('#storage-notice').textContent = message; }
+const storage=await workspaceStorage(key,notice);
 try {
-  const saved = JSON.parse(localStorage.getItem(key) || 'null');
+  const saved = storage.initial;
   if (saved?.version === 1 && saved.draft && Array.isArray(saved.goals) && saved.goals.every(g => g && typeof g.id === 'string' && g.task && typeof g.task.title === 'string')) {
     state = { ...state, ...saved, draft: { ...emptyDraft(), ...saved.draft }, step: Number.isInteger(saved.step) && saved.step >= 0 && saved.step <= 4 ? saved.step : 0 };
     for (const name of Object.keys(state.draft)) state.draft[name] = String(state.draft[name]);
@@ -23,7 +25,7 @@ try {
   } else if (saved) notice('Your saved data could not be read. You can begin a new draft.');
 } catch { notice('Browser storage is unavailable or unreadable. Keep this page open to retain your work.'); }
 function persist() {
-  try { localStorage.setItem(key, JSON.stringify(state)); return true; }
+  try { return storage.save(state); }
   catch { notice('Your changes are in this tab only. Browser storage could not save them; export your goals before closing.'); return false; }
 }
 function field(name, label, hint, type = 'text') {
@@ -36,6 +38,7 @@ function render(focus = false) {
   cleanupView(); cleanupView = () => {};
   document.querySelectorAll('[data-view]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.view === state.view)));
   document.querySelector('#steps').hidden = state.view !== 'quick-start';
+  if (state.view === 'account') { mountAccount(content,state,storage,escape); return; }
   if (state.view === 'result') {
     if (state.activeSession) { cleanupView = mountFocus(content, state, persist, escape, true); }
     else {
@@ -94,10 +97,11 @@ if (state.activeSession) persist();
 state.reviews = state.reviews && typeof state.reviews === 'object' && !Array.isArray(state.reviews) ? state.reviews : {};
 state.reviewDrafts = state.reviewDrafts && typeof state.reviewDrafts === 'object' && !Array.isArray(state.reviewDrafts) ? state.reviewDrafts : {};
 for (const field of ['dayPlans', 'dayDrafts', 'dayReflections', 'dayReflectionDrafts', 'goalEditDrafts']) state[field] = state[field] && typeof state[field] === 'object' && !Array.isArray(state[field]) ? state[field] : {};
-if (!['quick-start', 'inbox', 'focus', 'result', 'progress', 'today', 'goals', 'backup', 'guide'].includes(state.view)) state.view = 'quick-start';
+if (!['quick-start', 'inbox', 'focus', 'result', 'progress', 'today', 'goals', 'backup', 'guide','account'].includes(state.view)) state.view = 'quick-start';
 // Running time is unpaused wall-clock time, never a concentration measurement.
 import { pauseSession } from './sessions.js';
 window.addEventListener('pagehide', () => { if (state.activeSession?.status === 'running') { pauseSession(state.activeSession, Date.now(), 'Page closed or reloaded; resume when ready'); persist(); } });
 setInterval(() => { if (state.activeSession?.status === 'running') { state.activeSession.lastSeenAt = Date.now(); persist(); } }, 5000);
 document.querySelectorAll('[data-view]').forEach(button => button.addEventListener('click', () => { state.view = button.dataset.view; persist(); render(true); }));
+document.querySelector('.workspace footer').innerHTML=storage.user ? 'Local account storage · <span id="workspace-save-status">Connected</span>' : 'Browser-only mode. Account setup is optional.';
 render();
