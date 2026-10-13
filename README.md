@@ -9,6 +9,12 @@ An AI-supported personal execution and accountability system combining seasonal 
 
 [ofasseeh94/productivity-tool](https://github.com/ofasseeh94/productivity-tool) is the public project repository. This folder is its local checkout, with the documentation baseline on the main branch.
 
+## Simple use
+
+Read the [short user guide](docs/USER_GUIDE.md), or select How to use in the app. The everyday route is Today → Focus → Save result.
+
+The full backbone is not complete: see the [completion checkpoint](docs/BACKBONE_STATUS.md). Branding and visual polish are deferred until that checkpoint is met.
+
 ## Start here
 
 Read [the master project guide](docs/PROJECT_GUIDE.md). It is the canonical reference for the product concept, confirmed decisions, workflows, scope, delivery process and outstanding questions.

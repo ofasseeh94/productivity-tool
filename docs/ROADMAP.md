@@ -50,3 +50,7 @@
 2026-10-13: Saved-goal management added with explicit edits/status, draft recovery, original-ambition preservation, definition history, and linked-task handoff. See [unit specification](GOAL_MANAGEMENT.md).
 
 2026-10-13: Full-data Backup and Restore added, including structure validation, preview, explicit replacement, pre-restore backup, and unfinished-session protection. See [unit specification](BACKUP_RESTORE.md).
+
+## Current completion checkpoint
+
+The manual browser workflow is implemented; the full backbone is incomplete. Use [BACKBONE_STATUS.md](BACKBONE_STATUS.md) for the remaining completion gates and the user's simplicity/branding instructions. The phase table above describes full phase deliverables; prototype slices do not complete those phases.
