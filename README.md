@@ -45,3 +45,7 @@ Select Planning Inbox in the local preview to capture standalone or goal-linked 
 ## Focus sessions
 
 Use Focus beside Quick Start and Planning Inbox, or a task's Focus button. Start, pause/resume, end, and log completed/partial/stopped attempts with a resumption note. Session history persists locally and is included in the inbox's full-data export. See [unit specification](docs/FOCUS_SESSIONS.md).
+
+## Progress and Review
+
+Select Progress to review logged sessions over 7 or 28 calendar days, compare timer time with the preceding period, inspect current task status, explicitly mark milestones, and save reflections. See [unit specification](docs/PROGRESS_REVIEW.md).

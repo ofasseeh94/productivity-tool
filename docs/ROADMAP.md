@@ -42,3 +42,5 @@
 2026-10-13: Planning Inbox prototype added: manual capture, optional goal links and estimates, editing, completion, filters, first-action synchronization, and complete browser-data export. See [unit specification](PLANNING_INBOX.md).
 
 2026-10-13: Task-linked focus-session prototype added, including pause/resume, reload recovery, explicit outcome capture, resumption notes, and execution history. See [unit specification](FOCUS_SESSIONS.md). AI coaching and checkpoint delivery remain future work.
+
+2026-10-13: Progress and Review prototype added: session summaries, preceding-period timer comparison, daily effort table, current task snapshots, manual milestone achievement, and persistent reflections. See [unit specification](PROGRESS_REVIEW.md).
