@@ -48,3 +48,5 @@
 2026-10-13: Today and Daily Planning prototype added: explicit priority plans, stated capacity, tomorrow preparation, earlier-work review, Focus shortcuts, and dated reflections. See [unit specification](DAILY_PLANNING.md).
 
 2026-10-13: Saved-goal management added with explicit edits/status, draft recovery, original-ambition preservation, definition history, and linked-task handoff. See [unit specification](GOAL_MANAGEMENT.md).
+
+2026-10-13: Full-data Backup and Restore added, including structure validation, preview, explicit replacement, pre-restore backup, and unfinished-session protection. See [unit specification](BACKUP_RESTORE.md).

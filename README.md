@@ -57,3 +57,7 @@ Use Today to select up to three priorities, state available time, prepare tomorr
 ## Goal Management
 
 Use Goals to edit saved definitions, confirm or reopen goal outcomes, inspect previous definitions, and capture linked tasks. Drafts require an explicit save. See [unit specification](docs/GOAL_MANAGEMENT.md).
+
+## Backup and Restore
+
+Use Backup to download all browser data, inspect a full-data JSON backup, and explicitly restore it. Restoration replaces current data and offers a pre-restore download. Goal-only exports are not accepted. See [unit specification](docs/BACKUP_RESTORE.md).
