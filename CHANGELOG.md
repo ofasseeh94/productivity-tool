@@ -11,3 +11,7 @@ Follow a human-readable change log. Record shipped functionality separately from
 
 ### Application
 - 2026-10-12: Added the Quick Start browser prototype: ambition-to-plan flow, explicit save, persistent drafts and goals, first-task completion, capacity validation, and JSON export. No live integrations yet.
+
+### Planning Inbox prototype — 2026-10-13
+- Added standalone and goal-linked task capture, explicit task editing, completion/reopening, and filters.
+- Preserved Quick Start first-action identity and existing browser data; added full-data export.

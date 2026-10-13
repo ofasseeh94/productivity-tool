@@ -37,3 +37,7 @@ This is a local prototype with guided manual planning, not AI refinement or acco
 ## Working agreement
 
 No architecture or tech stack is approved yet. No calendar or email access is assumed. Proposed calendar edits always require explicit user approval. Product requirements are distinguished from implementation suggestions in the guide.
+
+## Planning Inbox
+
+Select Planning Inbox in the local preview to capture standalone or goal-linked tasks, edit estimates, and complete or reopen actions. Quick Start first actions appear in the same list. Export all data includes inbox tasks and goals. See [unit specification](docs/PLANNING_INBOX.md).
