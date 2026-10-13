@@ -4,6 +4,13 @@ import { mkdtempSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { Store } from '../server/store.js';
+test('registration accepts eight characters and rejects seven',async()=>{
+  const s=new Store(':memory:');try{
+    await assert.rejects(s.register('shortuser','abcdefg'), /8–128/);
+    const user=await s.register('eightuser','abcdefgh');
+    assert.equal((await s.login('eightuser','abcdefgh')).id,user.id);
+  }finally{s.close();}
+});
 test('accounts hash passwords, isolate records and revoke/expire sessions',async () => {
   const s = new Store(':memory:');
   try {

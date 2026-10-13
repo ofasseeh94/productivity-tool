@@ -27,3 +27,5 @@ Tests cover password checks, hashed credentials, token expiry/revocation, accoun
 ## Remaining production work
 
 Local accounts are not cloud sync. This server is deliberately restricted to loopback and uses local HTTP. Do not expose it as a public production deployment. Online hosting needs HTTPS, production auth/recovery (including password reset or managed identity), deployment/storage/backups, provider-token custody, and further security/operational validation. Password-reset/email services, cross-device synchronization, and live multi-tab merging are not implemented. The backbone accounts gate remains partially complete.
+
+Password length: 8–128 characters, per user preference. Existing accounts keep their passwords.

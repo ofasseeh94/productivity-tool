@@ -15,7 +15,7 @@ export class Store {
   async register(username, password) {
     username = String(username || '').trim().toLowerCase();
     if (!/^[a-z0-9_-]{3,40}$/.test(username)) throw new Error('Choose a username of 3–40 letters, numbers, underscores, or hyphens.');
-    if (typeof password !== 'string' || password.length < 12 || password.length > 128) throw new Error('Use a password of 12–128 characters.');
+    if (typeof password !== 'string' || password.length < 8 || password.length > 128) throw new Error('Use a password of 8–128 characters.');
     const salt = randomBytes(16).toString('hex');
     const hash = (await derive(password, salt, 64, { N:32768, r:8, p:1, maxmem:64*1024*1024 })).toString('hex');
     const id = randomUUID();
