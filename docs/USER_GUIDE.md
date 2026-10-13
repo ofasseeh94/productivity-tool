@@ -30,3 +30,5 @@ Open **Planning Inbox**, write the task, and select **Add task**. Estimates and 
 Your usual route is **Today → Focus → Save result**. You do not need to use every screen every day. The timer continues while the page is open; closing or reloading pauses it. Resume when ready.
 
 Calendar scheduling, AI coaching, accounts, and cross-device sync are not available yet. The current workflow is manual.
+
+The header follows your routine: **Today → Focus → Save result**. Save result opens your current attempt; select End and review when ready, then save the outcome. It does not stop the timer just by opening the screen.
