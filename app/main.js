@@ -1,6 +1,7 @@
 import { emptyDraft, validate, makeGoal } from './model.js';
+import { mountInbox } from './inbox.js';
 const key = 'momentum.quickstart.v1';
-let state = { version: 1, step: 0, draft: emptyDraft(), goals: [], selected: null };
+let state = { version: 1, step: 0, draft: emptyDraft(), goals: [], selected: null, tasks: [], taskDraft: { title: '', minutes: '', goalId: '' }, view: 'quick-start' };
 let errors = {};
 const content = document.querySelector('#content');
 const escape = value => String(value).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
@@ -24,6 +25,9 @@ function field(name, label, hint, type = 'text') {
 const titles = ['What matters to you right now?', 'Give your ambition a shape.', 'Make the first step small.', 'A plan you can make your own.'];
 const intros = ['An ambition, a project, a change you’ve been putting off. There’s no perfect answer.', 'Choose an outcome you can recognize, with time you can realistically protect.', 'Choose one concrete action within your control. You can build on it later.', 'Check that this feels realistic. Saving creates your goal and first task.'];
 function render(focus = false) {
+  document.querySelectorAll('[data-view]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.view === state.view)));
+  document.querySelector('#steps').hidden = state.view === 'inbox';
+  if (state.view === 'inbox') { mountInbox(content, state, persist, escape); return; }
   document.querySelectorAll('#steps li').forEach((li, i) => { li.classList.toggle('active', i === Math.min(state.step, 3)); if (i === Math.min(state.step, 3)) li.setAttribute('aria-current', 'step'); else li.removeAttribute('aria-current'); });
   if (state.step === 4) { renderGoal(); return; }
   let body;
@@ -52,10 +56,14 @@ function render(focus = false) {
 }
 function renderGoal() {
   const goal = state.goals.find(g => g.id === state.selected);
-  content.innerHTML = `<div class="success-icon">✓</div><div class="step-label">YOUR GOAL / READY WHEN YOU ARE</div><h2>You have a place to begin.</h2><p class="intro">A meaningful direction, and one next step. Come back whenever you’re ready.</p><div class="review"><small>${escape(goal.area)}</small><p>${escape(goal.outcome)}</p><div class="stats"><span>${escape(goal.weeks)} weeks</span><span>${escape(goal.weeklyHours)} hours / week</span></div></div><div class="review"><small>First milestone</small><p>${escape(goal.milestone)}</p></div><div class="review"><small>First action · ${escape(goal.task.minutes)} minutes</small><div class="task ${goal.task.completed ? 'done' : ''}"><input type="checkbox" id="completed" ${goal.task.completed ? 'checked' : ''}><label for="completed">${escape(goal.task.title)}</label></div></div><p class="hint">Mark the action complete when you’ve done it. Your milestone and goal remain separate.</p>${state.goals.length > 1 ? `<label for="goal-picker">Saved goals</label><select id="goal-picker">${state.goals.map(g => `<option value="${escape(g.id)}" ${g.id === goal.id ? 'selected' : ''}>${escape(g.outcome)}</option>`).join('')}</select>` : ''}<div class="actions"><button class="secondary" id="export">Export goals</button><button id="new-goal">${state.draft.aspiration ? 'Resume draft →' : 'Start another goal →'}</button></div>`;
+  content.innerHTML = `<div class="success-icon">✓</div><div class="step-label">YOUR GOAL / READY WHEN YOU ARE</div><h2>You have a place to begin.</h2><p class="intro">A meaningful direction, and one next step. Come back whenever you’re ready.</p><div class="review"><small>${escape(goal.area)}</small><p>${escape(goal.outcome)}</p><div class="stats"><span>${escape(goal.weeks)} weeks</span><span>${escape(goal.weeklyHours)} hours / week</span></div></div><div class="review"><small>First milestone</small><p>${escape(goal.milestone)}</p></div><div class="review"><small>First action · ${goal.task.minutes == null ? 'No estimate' : escape(goal.task.minutes) + ' minutes'}</small><div class="task ${goal.task.completed ? 'done' : ''}"><input type="checkbox" id="completed" ${goal.task.completed ? 'checked' : ''}><label for="completed">${escape(goal.task.title)}</label></div></div><p class="hint">Mark the action complete when you’ve done it. Your milestone and goal remain separate.</p>${state.goals.length > 1 ? `<label for="goal-picker">Saved goals</label><select id="goal-picker">${state.goals.map(g => `<option value="${escape(g.id)}" ${g.id === goal.id ? 'selected' : ''}>${escape(g.outcome)}</option>`).join('')}</select>` : ''}<div class="actions"><button class="secondary" id="export">Export goals</button><button id="new-goal">${state.draft.aspiration ? 'Resume draft →' : 'Start another goal →'}</button></div>`;
   content.querySelector('#completed').addEventListener('change', event => { goal.task.completed = event.target.checked; persist(); renderGoal(); content.querySelector('#completed').focus(); });
   content.querySelector('#new-goal').addEventListener('click', () => { state.step = 0; errors = {}; persist(); render(true); });
   content.querySelector('#goal-picker')?.addEventListener('change', event => { state.selected = event.target.value; persist(); renderGoal(); });
   content.querySelector('#export').addEventListener('click', () => { const url = URL.createObjectURL(new Blob([JSON.stringify({ version: 1, goals: state.goals }, null, 2)], { type: 'application/json' })); const link = document.createElement('a'); link.href = url; link.download = 'momentum-goals.json'; link.click(); setTimeout(() => URL.revokeObjectURL(url), 1000); });
 }
+if (!Array.isArray(state.tasks) || !state.tasks.every(t => t && typeof t.id === 'string' && typeof t.title === 'string')) { state.tasks = []; notice('Saved inbox tasks could not be read. Your goals remain available.'); }
+state.taskDraft = { title: '', minutes: '', goalId: '', ...state.taskDraft };
+if (!['quick-start', 'inbox'].includes(state.view)) state.view = 'quick-start';
+document.querySelectorAll('[data-view]').forEach(button => button.addEventListener('click', () => { state.view = button.dataset.view; persist(); render(true); }));
 render();
