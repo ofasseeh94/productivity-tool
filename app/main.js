@@ -5,6 +5,7 @@ import { mountProgress } from './progress.js';
 import { mountToday } from './today.js';
 import { mountGoals } from './goals.js';
 import { mountBackup } from './backup.js';
+import { mountGuide } from './guide.js';
 import { recoverSession } from './sessions.js';
 const key = 'momentum.quickstart.v1';
 let state = { version: 1, step: 0, draft: emptyDraft(), goals: [], selected: null, tasks: [], taskDraft: { title: '', minutes: '', goalId: '' }, view: 'quick-start' };
@@ -35,6 +36,7 @@ function render(focus = false) {
   cleanupView(); cleanupView = () => {};
   document.querySelectorAll('[data-view]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.view === state.view)));
   document.querySelector('#steps').hidden = state.view !== 'quick-start';
+  if (state.view === 'guide') { mountGuide(content, view => { state.view = view; persist(); render(true); }); return; }
   if (state.view === 'backup') { mountBackup(content, state, persist, escape, () => { notice('Backup restored. Your previous data was offered as a download.'); render(true); }); return; }
   if (state.view === 'goals') { mountGoals(content, state, persist, escape, id => { state.taskDraft.goalId = id; state.view = 'inbox'; persist(); render(true); }); return; }
   if (state.view === 'today') { mountToday(content, state, persist, escape, view => { state.view = view; persist(); render(true); }, id => { state.focusTaskId = id; state.view = 'focus'; persist(); render(true); }); return; }
@@ -84,7 +86,7 @@ if (state.activeSession) persist();
 state.reviews = state.reviews && typeof state.reviews === 'object' && !Array.isArray(state.reviews) ? state.reviews : {};
 state.reviewDrafts = state.reviewDrafts && typeof state.reviewDrafts === 'object' && !Array.isArray(state.reviewDrafts) ? state.reviewDrafts : {};
 for (const field of ['dayPlans', 'dayDrafts', 'dayReflections', 'dayReflectionDrafts', 'goalEditDrafts']) state[field] = state[field] && typeof state[field] === 'object' && !Array.isArray(state[field]) ? state[field] : {};
-if (!['quick-start', 'inbox', 'focus', 'progress', 'today', 'goals', 'backup'].includes(state.view)) state.view = 'quick-start';
+if (!['quick-start', 'inbox', 'focus', 'progress', 'today', 'goals', 'backup', 'guide'].includes(state.view)) state.view = 'quick-start';
 // Running time is unpaused wall-clock time, never a concentration measurement.
 import { pauseSession } from './sessions.js';
 window.addEventListener('pagehide', () => { if (state.activeSession?.status === 'running') { pauseSession(state.activeSession, Date.now(), 'Page closed or reloaded; resume when ready'); persist(); } });
