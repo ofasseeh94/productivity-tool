@@ -46,3 +46,5 @@
 2026-10-13: Progress and Review prototype added: session summaries, preceding-period timer comparison, daily effort table, current task snapshots, manual milestone achievement, and persistent reflections. See [unit specification](PROGRESS_REVIEW.md).
 
 2026-10-13: Today and Daily Planning prototype added: explicit priority plans, stated capacity, tomorrow preparation, earlier-work review, Focus shortcuts, and dated reflections. See [unit specification](DAILY_PLANNING.md).
+
+2026-10-13: Saved-goal management added with explicit edits/status, draft recovery, original-ambition preservation, definition history, and linked-task handoff. See [unit specification](GOAL_MANAGEMENT.md).

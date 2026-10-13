@@ -28,3 +28,8 @@ Follow a human-readable change log. Record shipped functionality separately from
 ### Today and Daily Planning prototype — 2026-10-13
 - Added explicit today/tomorrow plans with up to three priorities, optional capacity checks, and plan drafts.
 - Added synchronized task completion, Focus shortcuts, unfinished earlier-priority review without automatic carryover, and dated reflections/history.
+
+### Goal Management prototype — 2026-10-13
+- Added saved-goal editing, explicit outcome status, draft recovery/cancel, and previous-definition history.
+- Preserved original ambitions and task identities; changed milestone definitions require fresh achievement verification.
+- Added linked-task capture handoff and goal status in Progress.

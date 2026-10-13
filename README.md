@@ -53,3 +53,7 @@ Select Progress to review logged sessions over 7 or 28 calendar days, compare ti
 ## Today and Daily Planning
 
 Use Today to select up to three priorities, state available time, prepare tomorrow, open Focus, and save a daily reflection. Existing tasks stay synchronized. No calendar scheduling occurs. See [unit specification](docs/DAILY_PLANNING.md).
+
+## Goal Management
+
+Use Goals to edit saved definitions, confirm or reopen goal outcomes, inspect previous definitions, and capture linked tasks. Drafts require an explicit save. See [unit specification](docs/GOAL_MANAGEMENT.md).
