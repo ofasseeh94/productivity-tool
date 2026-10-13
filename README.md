@@ -49,3 +49,7 @@ Use Focus beside Quick Start and Planning Inbox, or a task's Focus button. Start
 ## Progress and Review
 
 Select Progress to review logged sessions over 7 or 28 calendar days, compare timer time with the preceding period, inspect current task status, explicitly mark milestones, and save reflections. See [unit specification](docs/PROGRESS_REVIEW.md).
+
+## Today and Daily Planning
+
+Use Today to select up to three priorities, state available time, prepare tomorrow, open Focus, and save a daily reflection. Existing tasks stay synchronized. No calendar scheduling occurs. See [unit specification](docs/DAILY_PLANNING.md).
