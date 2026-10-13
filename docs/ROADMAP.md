@@ -54,3 +54,5 @@
 ## Current completion checkpoint
 
 The manual browser workflow is implemented; the full backbone is incomplete. Use [BACKBONE_STATUS.md](BACKBONE_STATUS.md) for the remaining completion gates and the user's simplicity/branding instructions. The phase table above describes full phase deliverables; prototype slices do not complete those phases.
+
+2026-10-13: Local-first accounts and durable server storage implemented. Online hosting, production authentication/recovery, and provider-token custody remain future work. See [account storage specification](ACCOUNT_STORAGE.md).

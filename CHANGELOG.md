@@ -37,3 +37,7 @@ Follow a human-readable change log. Record shipped functionality separately from
 ### Backup and Restore — 2026-10-13
 - Added full-data export and validated backup inspection with preview counts.
 - Added explicit replacement confirmation, pre-restore download, session recovery, and failed-persistence rollback.
+
+### Local accounts and durable storage — 2026-10-13
+- Added registration/sign-in/sign-out, explicit migration, isolated per-user SQLite records, revision conflicts, pending-save recovery, and confirmed account deletion.
+- Preserved the existing browser-only workspace. Public hosting and cross-device sync remain later.

@@ -6,6 +6,8 @@ As of 2026-10-13: **manual browser prototype usable; full product backbone incom
 
 Quick Start, Planning Inbox, Focus sessions, Progress and Review, Today and Daily Planning, Goal Management, and Backup and Restore support a manual goal → task → plan → execute → log → review loop. Records persist locally in one browser.
 
+2026-10-13: Local accounts and server-side SQLite persistence added. User selected local-first, with online hosting later. Browser-only records can be explicitly copied into a new account. Account isolation, revision conflicts, restart persistence, cache recovery, export and account deletion are implemented. See ACCOUNT_STORAGE.md. Production hosting/auth recovery and provider token custody remain open; the full accounts gate is not yet complete.
+
 ## Required before declaring the backbone complete
 
 - [ ] Agree the initial MVP boundary, supported calendar providers, and production architecture.

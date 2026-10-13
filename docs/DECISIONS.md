@@ -54,3 +54,10 @@
 - **Status:** Agreed
 - **Decision:** Prioritize the functional workflow; keep current branding provisional and defer a dedicated design pass. Continue basic usability, accessibility, and responsive behavior as units are built.
 - **Rationale:** User requested postponing branding and appearance work before continuing the next functional block.
+
+### D-018: Local-first account foundation
+- **Date:** 2026-10-13
+- **Status:** Agreed delivery direction
+- **Decision:** Build accounts/storage on the user's computer first, with online hosting later.
+- **Implementation:** Node.js local API and per-user SQLite workspaces outside the repository; explicit browser-data migration. See ACCOUNT_STORAGE.md.
+- **Remaining:** Hosted identity/recovery, deployment, provider-token custody, and production validation.

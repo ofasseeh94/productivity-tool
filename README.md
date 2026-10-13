@@ -21,7 +21,7 @@ Read [the master project guide](docs/PROJECT_GUIDE.md). It is the canonical refe
 
 ## Run the first unit
 
-Requires Node.js 22 or later. No dependency installation is needed.
+Requires Node.js 24.15 or later. No dependency installation is needed.
 
 ~~~sh
 npm run dev
@@ -42,7 +42,7 @@ This is a local prototype with guided manual planning, not AI refinement or acco
 
 ## Working agreement
 
-No architecture or tech stack is approved yet. No calendar or email access is assumed. Proposed calendar edits always require explicit user approval. Product requirements are distinguished from implementation suggestions in the guide.
+Production architecture remains pending. The local foundation uses Node.js and SQLite. No calendar or email access is assumed. Proposed calendar edits always require explicit user approval. Product requirements are distinguished from implementation suggestions in the guide.
 
 ## Planning Inbox
 
@@ -67,3 +67,7 @@ Use Goals to edit saved definitions, confirm or reopen goal outcomes, inspect pr
 ## Backup and Restore
 
 Use Backup to download all browser data, inspect a full-data JSON backup, and explicitly restore it. Restoration replaces current data and offers a pre-restore download. Goal-only exports are not accepted. See [unit specification](docs/BACKUP_RESTORE.md).
+
+## Local accounts
+
+Select Account to create/sign in to a local account. Explicitly choose whether to copy existing browser data into a new account. Signed-in records persist in a server-side SQLite database outside this repository. See [account storage guide](docs/ACCOUNT_STORAGE.md). Online hosting is future work.
