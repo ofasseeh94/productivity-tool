@@ -20,3 +20,7 @@ Follow a human-readable change log. Record shipped functionality separately from
 - Added task-linked focus setup, timestamp-based timing, pause/resume and interruption records.
 - Added reload recovery, explicit session outcomes, resumption notes, self-reported focused time, and persistent history.
 - Completed outcomes synchronize task status; partial/stopped records retain effort without completing tasks.
+
+### Progress and Review prototype — 2026-10-13
+- Added explicit 7/28-day session summaries, adjacent-period timer comparison, daily effort data, and focused-report coverage.
+- Added independent milestone achievement and persistent review drafts/history; preserved previous unit data.
