@@ -48,3 +48,9 @@
 - **Decision:** User selected Quick Start as the first unit: one ambition, defined goal, milestone, and first task.
 - **Implementation:** Local browser prototype; see QUICK_START.md. Production architecture and AI refinement remain open.
 - **Related issue:** #1
+
+### D-017: Defer branding and visual polish
+- **Date:** 2026-10-13
+- **Status:** Agreed
+- **Decision:** Prioritize the functional workflow; keep current branding provisional and defer a dedicated design pass. Continue basic usability, accessibility, and responsive behavior as units are built.
+- **Rationale:** User requested postponing branding and appearance work before continuing the next functional block.

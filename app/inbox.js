@@ -1,6 +1,6 @@
 import { taskErrors, makeTask, taskRows, findTask } from './tasks.js';
 
-export function mountInbox(content, state, persist, escape) {
+export function mountInbox(content, state, persist, escape, startFocus) {
   let filter = 'open';
   let draft = { title: state.taskDraft?.title || '', minutes: state.taskDraft?.minutes || '', goalId: state.taskDraft?.goalId || '' };
   let editing = null;
@@ -50,6 +50,14 @@ export function mountInbox(content, state, persist, escape) {
       draft = { title: row.title, minutes: row.minutes ?? '', goalId: row.goalId || '' }; errors = {}; message = '';
       render(); content.querySelector('#task-title').focus();
     }));
+    content.querySelectorAll('[data-edit]').forEach(button => {
+      const task = rows.find(row => row.id === button.dataset.edit);
+      if (!task.completed) {
+        const start = document.createElement('button'); start.className = 'secondary'; start.textContent = 'Focus';
+        start.setAttribute('aria-label', 'Focus on ' + task.title);
+        start.addEventListener('click', () => startFocus(task.id)); button.after(start);
+      }
+    });
     content.querySelector('#cancel-edit')?.addEventListener('click', () => { editing = null; draft = { ...state.taskDraft }; errors = {}; render(); });
     content.querySelector('#export-actions').addEventListener('click', () => {
       const url = URL.createObjectURL(new Blob([JSON.stringify(state, null, 2)], { type: 'application/json' }));
