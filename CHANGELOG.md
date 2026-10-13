@@ -33,3 +33,7 @@ Follow a human-readable change log. Record shipped functionality separately from
 - Added saved-goal editing, explicit outcome status, draft recovery/cancel, and previous-definition history.
 - Preserved original ambitions and task identities; changed milestone definitions require fresh achievement verification.
 - Added linked-task capture handoff and goal status in Progress.
+
+### Backup and Restore — 2026-10-13
+- Added full-data export and validated backup inspection with preview counts.
+- Added explicit replacement confirmation, pre-restore download, session recovery, and failed-persistence rollback.
